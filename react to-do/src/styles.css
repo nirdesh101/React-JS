@@ -5,9 +5,9 @@ body {
 
 input {
   background-color: aqua;
-  border: 1px solid aqua;
-  border-radius: 5px;
-  width: 300px;
+  border: .0625rem solid aqua;
+  border-radius: .3125rem;
+  width: 18.75rem;
   padding: 0.5rem;
   margin-right:.625rem;
   font-size: 1rem;
@@ -15,8 +15,8 @@ input {
 
 button {
   cursor: pointer;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: .0625rem solid black;
+  border-radius: .3125rem;
   padding: 0.5rem;
   font-size: 1rem;
   font-weight: bolder;
