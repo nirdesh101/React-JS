@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import DisplayTodo from "./DisplayTodoList";
 
 function TodoForm() {
   const [todos, setTodos] = useState([]);
@@ -26,11 +27,8 @@ function TodoForm() {
         onKeyDown={handleEnterKey}
       />
       <button onClick={addTodo}>Add Todo</button>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>{todo.text}</li>
-        ))}
-      </ul>
+
+      <DisplayTodo todos = {todos} />
     </>
   );
 }
