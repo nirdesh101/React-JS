@@ -13,12 +13,11 @@ function Counter() {
   const refresh = () => window.location.reload(true);
 
   return (
-    <>
-      <div>
-        <h1> {count} </h1>
-        <button onClick={refresh}>RESET</button>
-      </div>
-    </>
+    
+    <div>
+      <h1> {count} </h1>
+      <button onClick={refresh}>RESET</button>
+    </div>
   );
 }
 

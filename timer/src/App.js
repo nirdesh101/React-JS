@@ -5,9 +5,7 @@ import Counter from './Component/Counter';
 function App() {
 
   return (
-    <>
       <Counter />
-    </>
   );
 }
 
