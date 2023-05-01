@@ -7,7 +7,7 @@ body {
 li {
     color: greenyellow;
     list-style: square;
-    margin-left: 225px;
+    margin-left: 14.0625rem;
   }
 
 .todo-text {
@@ -20,7 +20,7 @@ th {
 
 .add-btn {
   font-size: large;
-  border-radius: 2px;
+  border-radius: .125rem;
 }
 
 td {
@@ -31,20 +31,20 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 280px;
+  margin-top: 17.5rem;
 }
 
 .Modal__Content {
   background-color: white;
-  border-radius: 4px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-  padding: 16px;
+  border-radius: .25rem;
+  box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.25);
+  padding: 1rem;
 }
 
 .Modal__Heading {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -52,13 +52,13 @@ td {
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 8px 16px;
+  padding: .5rem 1rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-  margin-right: 8px;
+  font-size: 1rem;
+  border-radius: .25rem;
+  margin-right: .5rem;
 }
 
 .Modal__Button--Yes {
