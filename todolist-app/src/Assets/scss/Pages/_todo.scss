@@ -1,0 +1,70 @@
+body {
+    background-color: #101820FF;
+    text-align: center;
+    color: #FEE715FF ;
+  }
+
+li {
+    color: greenyellow;
+    list-style: square;
+    margin-left: 225px;
+  }
+
+.todo-text {
+  color: #FEE715FF ;
+}
+
+th {
+  color: white;
+}
+
+.add-btn {
+  font-size: large;
+  border-radius: 2px;
+}
+
+td {
+  color:white;
+}
+
+.Modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 280px;
+}
+
+.Modal__Content {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 16px;
+}
+
+.Modal__Heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Modal__Button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.Modal__Button--Yes {
+  background-color: #f44336;
+}
+
+.Modal__Button--No {
+  background-color: #4CAF50;
+}
