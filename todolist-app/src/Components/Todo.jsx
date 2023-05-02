@@ -61,7 +61,7 @@ function TodoList() {
           </h2>
           <button
             className="Modal__Button Modal__Button--Yes"
-            onClick= {()=>{
+            onClick={() => {
               handleDelete();
               toggleModal();
             }}
@@ -107,12 +107,10 @@ function TodoList() {
               <thead className="col-md-8">
                 <tr className="align-items-center text-center">
                   <th scope="col" className="col-md-1">
-                    {" "}
-                    S.N{" "}
+                    S.N
                   </th>
                   <th scope="col" className="col-md-5">
-                    {" "}
-                    TODO{" "}
+                    TODO
                   </th>
                   <th scope="col" className="col-md-2">
                     Action
