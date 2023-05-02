@@ -61,7 +61,10 @@ function TodoList() {
           </h2>
           <button
             className="Modal__Button Modal__Button--Yes"
-            onClick={handleDelete}
+            onClick= {()=>{
+              handleDelete();
+              toggleModal();
+            }}
           >
             Yes
           </button>
