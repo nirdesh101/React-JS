@@ -94,7 +94,7 @@ function TodoList() {
             }}
           />
           <button
-            className="add-btn text-bg-primary py-2 px-3 border-0 ms-4"
+            className="add-btn py-2 px-3 border-0 ms-4"
             onClick={handleAdd}
           >
             Add
