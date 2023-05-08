@@ -1,26 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import "./App.css";
+import "./Assets/scss/index.scss";
+import Nav from "./Components/NavBar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Home";
+import FormFill from "./Components/FormFill";
+import UserList from "./Components/UserList";
+import jsonData from "../src/data.json";
 
 function App() {
+  const [userData, setUserData] = useState(jsonData);
+
+  console.log(jsonData.length);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <button className='py-5 px-5'></button>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <div className="container">
+        <Routes>
+          <Route
+            path="/"
+            element={<Home userData={userData} setUserData={setUserData} />}
+          />
+          <Route
+            path="/userlist"
+            element={<UserList userData={userData} setUserData={setUserData} />}
+          />
+        </Routes>
+      </div>
+    </>
   );
 }
 
