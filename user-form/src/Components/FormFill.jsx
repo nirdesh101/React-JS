@@ -5,7 +5,6 @@ import { DetailsContext } from "../ContextApi/context";
 
 function FormFill({ userData, setUserData }) {
   const { data, setData, initialState } = useContext(DetailsContext);
-  console.log(data);
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -17,8 +16,6 @@ function FormFill({ userData, setUserData }) {
   useEffect(() => {
     localStorage.setItem("key", JSON.stringify(data));
   }, [data]);
-
-  console.log(data, "data");
 
   const validateForm = () => {
     let errors = {};
