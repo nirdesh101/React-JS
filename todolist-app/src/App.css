@@ -1,0 +1,53 @@
+body {
+    background-color: #101820FF;
+    text-align: center;
+    color: bisque;
+  }
+  
+  input {
+    width: 35%;
+    padding: 12px 5px;
+    font-size: 15px;
+  }
+  
+  .add-btn {
+    padding: 12px 15px;
+    margin: 10px;
+    font-size: 15px;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .delete-btn, .edit-btn {
+    margin-left: 35px;
+    padding: 5px 10px;
+    font-weight: 900;
+    margin-top: 10px;
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .todo {
+    background-color: #FEE715FF ;
+    margin: 10px 0px;
+  }
+  
+  li {
+    font-size: 20px;
+    color: greenyellow;
+    padding: 5px 10px;
+    list-style: square;
+  }
+  
+  .textInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    outline: none;
+  }
+  
