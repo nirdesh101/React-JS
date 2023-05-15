@@ -1,5 +1,10 @@
 import React from "react";
+
 import { NavLink } from "react-router-dom";
+
+import {
+  USERLIST,
+} from "../Constant/route"
 
 function Nav() {
   return (
@@ -28,7 +33,7 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <NavLink
-              to="/userlist"
+              to= { USERLIST.INDEX }
               className="fs-5 ms-5 fw-semibold user-data text-decoration-underline"
               href="#"
             >
