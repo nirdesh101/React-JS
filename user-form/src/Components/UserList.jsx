@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
 function UserList({ userData, setUserData }) {
@@ -20,15 +21,12 @@ function UserList({ userData, setUserData }) {
   }
   useEffect(() => init(), []);
 
-  console.log(userData);
-
   function handleDelete(index) {
     const updatedData = [...userData];
     updatedData.splice(index, 1);
     setUserData(updatedData);
     localStorage.setItem(key, JSON.stringify(updatedData));
   }
-  
 
   const tableRows = userData
     .filter((item) => {
@@ -39,13 +37,23 @@ function UserList({ userData, setUserData }) {
     .map((info, index) => (
       <tr key={index} className="data-row clickable-row" id={index}>
         <td className="py-3">
-          <Link className="text-white fw-bolder" to={"/userlist/" + index}>{index + 1}</Link>
+          <Link className="text-white fw-bolder" to={"/userlist/" + index}>
+            {index + 1}
+          </Link>
         </td>
         <td className="py-3">
-          <Link className="text-white fw-bolder" to={"/userlist/" + index}>{info.fname}</Link>
+          <Link className="text-white fw-bolder" to={"/userlist/" + index}>
+            {info.fname}
+          </Link>
         </td>
         <td className="py-3">
-          <Link className="text-danger fw-bolder" onClick={() => handleDelete(index)}>  DELETE </Link>
+          <Link
+            className="text-danger fw-bolder"
+            onClick={() => handleDelete(index)}
+          >
+            {" "}
+            DELETE{" "}
+          </Link>
         </td>
       </tr>
     ));
