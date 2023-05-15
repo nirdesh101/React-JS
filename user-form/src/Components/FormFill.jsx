@@ -1,35 +1,98 @@
-import React, { useState } from "react";
+import React, { useId, useState, useContext } from "react";
 import print from "../Assets/Images/print.png";
-import jsonData from "../data.json"
+import { useEffect } from "react";
+import { DetailsContext } from "../ContextApi/context";
 
 function FormFill({ userData, setUserData }) {
-  const initialValues = {
-    fname: "",
-    lname: "",
-    email: "",
-    occupation: "",
-    dob: "",
-    interestedField: "",
+  const { data, setData, initialState } = useContext(DetailsContext);
+  console.log(data);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    if (localStorage.getItem("key")) {
+      setData(JSON.parse(localStorage.getItem("key")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("key", JSON.stringify(data));
+  }, [data]);
+
+  console.log(data, "data");
+
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!data.fname) {
+      isValid = false;
+      errors["fname"] = "Please enter your first name.";
+    }
+
+    if (!data.lname) {
+      isValid = false;
+      errors["lname"] = "Please enter your last name.";
+    }
+
+    if (!data.email) {
+      isValid = false;
+      errors["email"] = "Please enter your email address.";
+    }
+
+    if (typeof data.email !== "undefined") {
+      let pattern = new RegExp(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      );
+      if (!pattern.test(data.email)) {
+        isValid = false;
+        errors["email"] = "Please enter a valid email address.";
+      }
+    }
+
+    if (!data.occupation) {
+      isValid = false;
+      errors["occupation"] = "Please enter your occupation.";
+    }
+
+    if (!data.dob) {
+      isValid = false;
+      errors["dob"] = "Please enter your date of birth.";
+    }
+
+    setErrors(errors);
+    return isValid;
   };
-  const [data, setData] = useState(initialValues);
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [fieldName]: "",
+    }));
+
+    setData((prevData) => ({
+      ...prevData,
+      [fieldName]: fieldValue,
+    }));
   };
 
   const addUser = (e) => {
     e.preventDefault();
-    setUserData([...userData, { ...data }]);
-    clearState();
+    if (validateForm()) {
+      setUserData([...userData, { ...data }]);
+      clearState();
+    }
   };
 
   const clearState = () => {
-    setData(initialValues);
+    setData(initialState);
   };
 
   return (
     <div className="container">
-      <div className="d-flex justify-content-betwee mt-5">
+      <div className="d-flex justify-content-betwee mt-5 ">
         <div className="col-md-6">
           <div>
             <h1 className="formHead mb-2">Let's get started !</h1>
@@ -71,6 +134,7 @@ function FormFill({ userData, setUserData }) {
               className="rounded w-50 p-2 border-0"
               onChange={handleChange}
             />
+            {errors.fname && <div className="text-danger">{errors.fname}</div>}
             <label className="fw-bolder d-block pb-1 mt-4" htmlFor="name">
               LAST NAME*
             </label>
@@ -82,6 +146,7 @@ function FormFill({ userData, setUserData }) {
               className="rounded w-50 p-2 border-0"
               onChange={handleChange}
             />
+            {errors.lname && <div className="text-danger">{errors.lname}</div>}
             <label className="fw-bolder d-block pb-1 mt-4" htmlFor="email">
               EMAIL*
             </label>
@@ -93,6 +158,7 @@ function FormFill({ userData, setUserData }) {
               className="rounded w-50 p-2 border-0"
               onChange={handleChange}
             />
+            {errors.email && <div className="text-danger">{errors.email}</div>}
             <label className="fw-bolder d-block pb-1 mt-4" htmlFor="dob">
               DATE OF BIRTH*
             </label>
@@ -104,6 +170,7 @@ function FormFill({ userData, setUserData }) {
               className="rounded w-50 p-2 border-0"
               onChange={handleChange}
             />
+            {errors.dob && <div className="text-danger">{errors.dob}</div>}
             <label className="fw-bolder d-block pb-1 mt-4" htmlFor="occupation">
               OCCUPATION*
             </label>
@@ -114,15 +181,17 @@ function FormFill({ userData, setUserData }) {
               type="text"
               className="rounded w-50 p-2 border-0"
               onChange={handleChange}
-              required
             />
+            {errors.occupation && (
+              <div className="text-danger">{errors.occupation}</div>
+            )}
 
             <label
               className="fw-bolder d-block pb-1 mt-4"
               htmlFor="occupation"
               for="cars"
             >
-              INTERESTED FIELD
+              MAJOR INTEREST
             </label>
 
             <select
@@ -142,14 +211,14 @@ function FormFill({ userData, setUserData }) {
             </select>
 
             <label
-              className="fw-bolder d-block pb-1 mt-5"
+              className="fw-bolder d-block pb-1 mt-2"
               htmlFor="occupation"
             ></label>
             <button
-              onClick={addUser}
-              className="bg-primary rounded w-25 p-2 border-1 border-primary"
+              type="submit"
+              className="btn btn-primary rounded px-4 py-2 mt-4"
             >
-              REGISTER
+              Submit
             </button>
           </form>
         </div>

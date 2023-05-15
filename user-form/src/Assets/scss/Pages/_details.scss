@@ -1,0 +1,18 @@
+.details {
+    color: rgb(72, 249, 255);
+}
+
+hr {
+    // padding: 50px 0;
+    border: none;
+    
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      max-width: 100%;
+      width: 100%;
+      border: 1px solid gainsboro;
+    }
+  }

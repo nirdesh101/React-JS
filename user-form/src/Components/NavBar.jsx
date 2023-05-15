@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark bg-gradient">
       <div className="container">
         <h1>
           <NavLink
-            className="navbar-brand fs-2 text-danger fw-semibold me-5"
+            className="navbar-brand fs-2 text-light fw-semibold me-5"
             href="#"
             to="/"
           >
@@ -29,7 +29,7 @@ function Nav() {
           <div className="navbar-nav">
             <NavLink
               to="/userlist"
-              className="fs-5 ms-5 fw-semibold user-data"
+              className="fs-5 ms-5 fw-semibold user-data text-decoration-underline"
               href="#"
             >
               ALL USERS DATA
