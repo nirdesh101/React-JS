@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
+
 import { LoginContext } from "../Contexts/LoginContext";
 
 function Login() {
-
     const {setUsername, setShowProfile} = useContext(LoginContext)
-
   return (
     <>
     <div className="login">
